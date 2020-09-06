@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>churn V9</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='static/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="container-churn100">
+		
+		<div class="churn100-map" style="background-image: url(static/css/images/2.jpeg); height: 900px;" ></div>
+		<div class="wrap-churn100" >
+			<form action="{{ url_for('y_predict')}}"method="post">
+				<span class="churn100-form-title">
+					Customers that might churn
+				</span>
+				<div class="wrap-input100 input-ext" >
+					<input class="input100" type="text" name="name" placeholder="Credit Score" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 input-ext">
+					<input class="input100"  type="string" name="Geography" placeholder="Geography" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<select class ="hey" name="Gender" required="required">
+		  <option value="">Select Gender </option>
+		  <option value="1">Male</option>
+		  <option value="0">Female</option>
+		  </select>
+				<div class="wrap-input100 input-ext">
+					<input class="input100" type="number" name="Age" placeholder="Age" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 input-ext">
+					<input class="input100" type="number" name="Tenure" placeholder="Tenure" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 input-ext">
+					<input class="input100" type="number" name="Balance" placeholder="Balance" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 input-ext">
+					<input class="input100" type="number" name="No of products" placeholder="No of products" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<select name="Has credit card" required="required">
+        <option value="">Has credit card </option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+				<select name="Is active member" required="required">
+        <option value="">Is active member </option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+<div class="wrap-input100 input-ext">
+					<input class="input100" type="number" name="Estimted salary" placeholder="Estimated salary" required="required">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-churn100-form-btn">
+					<button class="churn100-form-btn">
+						Predict
+					</button>
+				</div>
+			</form>
+			<br>
+			<br>
+			{{ prediction_text }}
+		</div>
+	</div>
+</body>
+</html>
